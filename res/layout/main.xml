@@ -5,21 +5,25 @@
     android:paddingLeft="8dip"
     android:paddingRight="8dip" >
 
-    <EditText  
-        android:id="@+id/userText"  
-        android:hint="Enter name to add..."  
-        android:layout_alignParentLeft="true"  
-        android:layout_width="fill_parent"  
-        android:layout_toLeftOf="@+id/addBtn"  
-        android:layout_height="wrap_content"></EditText>  
-    <Button  
-        android:id="@+id/addBtn"  
-        android:text="ADD"  
-        android:layout_width="wrap_content"  
-        android:layout_alignParentRight="true"  
-        android:layout_height="wrap_content"></Button> 
+    <EditText
+        android:id="@+id/userText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/addBtn"
+        android:hint="Enter name to add..." >
+    </EditText>
+
+    <Button
+        android:id="@+id/addBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="ADD" >
+    </Button>
+
     <ListView
-        android:id="@android:list"
+        android:id="@android:id/list"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/userText"
