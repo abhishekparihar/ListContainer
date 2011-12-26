@@ -1,0 +1,353 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  Internal Error (classFileParser.cpp:3494), pid=4771, tid=3063630704
+#  Error: ShouldNotReachHere()
+#
+# JRE version: 6.0_26-b03
+# Java VM: Java HotSpot(TM) Server VM (20.1-b02 mixed mode linux-x86 )
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x08511000):  JavaThread "Unknown thread" [_thread_in_vm, id=4772, stack(0xb6964000,0xb69b5000)]
+
+Stack: [0xb6964000,0xb69b5000],  sp=0xb69b37d0,  free space=317k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x7248b0]  VMError::report_and_die()+0x2b0
+V  [libjvm.so+0x2f69af]  report_should_not_reach_here(char const*, int)+0x3f
+V  [libjvm.so+0x28cf2a]  ClassFileParser::parseClassFile(symbolHandle, Handle, Handle, KlassHandle, GrowableArray<Handle>*, symbolHandle&, bool, Thread*)+0x2d9a
+V  [libjvm.so+0x292f71]  ClassLoader::load_classfile(symbolHandle, Thread*)+0x221
+V  [libjvm.so+0x6b3d62]  SystemDictionary::load_instance_class(symbolHandle, Handle, Thread*)+0xf2
+V  [libjvm.so+0x6b1dfe]  SystemDictionary::resolve_instance_class_or_null(symbolHandle, Handle, Handle, Thread*)+0x55e
+V  [libjvm.so+0x6b0bc6]  SystemDictionary::resolve_or_null(symbolHandle, Handle, Handle, Thread*)+0x66
+V  [libjvm.so+0x6b0830]  SystemDictionary::resolve_or_fail(symbolHandle, Handle, Handle, bool, Thread*)+0x30
+V  [libjvm.so+0x6b564a]  SystemDictionary::initialize_wk_klass(SystemDictionary::WKID, int, Thread*)+0x6a
+V  [libjvm.so+0x6b56dc]  SystemDictionary::initialize_wk_klasses_until(SystemDictionary::WKID, SystemDictionary::WKID&, Thread*)+0x4c
+V  [libjvm.so+0x6b57a0]  SystemDictionary::initialize_preloaded_classes(Thread*)+0x70
+V  [libjvm.so+0x6b5571]  SystemDictionary::initialize(Thread*)+0xe1
+V  [libjvm.so+0x6fc35a]  Universe::genesis(Thread*)+0x4da
+V  [libjvm.so+0x6fda1f]  universe2_init()+0x1f
+V  [libjvm.so+0x3b8fb8]  init_globals()+0x98
+V  [libjvm.so+0x6e53b2]  Threads::create_vm(JavaVMInitArgs*, bool*)+0x242
+V  [libjvm.so+0x413bc6]  JNI_CreateJavaVM+0x56
+C  [java+0x305c]
+C  [java+0x1942]  JavaMain+0x72
+C  [libpthread.so.0+0x5e99]  short+0xd9
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x08511000 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=4772, stack(0xb6964000,0xb69b5000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Dynamic libraries:
+08048000-08052000 r-xp 00000000 08:05 5642717    /usr/lib/jvm/java-6-sun-1.6.0.26/jre/bin/java
+08052000-08053000 rwxp 00009000 08:05 5642717    /usr/lib/jvm/java-6-sun-1.6.0.26/jre/bin/java
+0850b000-0857e000 rwxp 00000000 00:00 0          [heap]
+7cfa1000-7d000000 r-xs 00492000 08:05 1977869    /home/webonise/android-sdks/platforms/android-7/android.jar
+7d000000-7d021000 rwxp 00000000 00:00 0 
+7d021000-7d100000 ---p 00000000 00:00 0 
+7d12e000-7d12f000 ---p 00000000 00:00 0 
+7d12f000-7d1af000 rwxp 00000000 00:00 0 
+7d1af000-7d1b0000 ---p 00000000 00:00 0 
+7d1b0000-7d230000 rwxp 00000000 00:00 0 
+7d230000-7d231000 ---p 00000000 00:00 0 
+7d231000-7d2b1000 rwxp 00000000 00:00 0 
+7d2b1000-7d2b2000 ---p 00000000 00:00 0 
+7d2b2000-7d33a000 rwxp 00000000 00:00 0 
+7d33a000-7d352000 rwxp 00000000 00:00 0 
+7d352000-7d363000 rwxp 00000000 00:00 0 
+7d363000-7d45e000 rwxp 00000000 00:00 0 
+7d45e000-7d466000 rwxp 00000000 00:00 0 
+7d466000-7d47e000 rwxp 00000000 00:00 0 
+7d47e000-7d48f000 rwxp 00000000 00:00 0 
+7d48f000-7d589000 rwxp 00000000 00:00 0 
+7d589000-7d592000 rwxp 00000000 00:00 0 
+7d592000-7d60f000 rwxp 00000000 00:00 0 
+7d60f000-7e610000 rwxp 00000000 00:00 0 
+7e610000-81610000 rwxp 00000000 00:00 0 
+81610000-83770000 rwxp 00000000 00:00 0 
+83770000-a2cc0000 rwxp 00000000 00:00 0 
+a2cc0000-a3d70000 rwxp 00000000 00:00 0 
+a3d70000-b3810000 rwxp 00000000 00:00 0 
+b381d000-b3826000 rwxp 00000000 00:00 0 
+b3826000-b38dd000 rwxp 00000000 00:00 0 
+b38dd000-b3b1d000 rwxp 00000000 00:00 0 
+b3b1d000-b68dd000 rwxp 00000000 00:00 0 
+b68dd000-b68ec000 r-xp 00000000 08:05 5902740    /usr/lib/jvm/java-6-sun-1.6.0.26/jre/lib/i386/libzip.so
+b68ec000-b68ee000 rwxp 0000e000 08:05 5902740    /usr/lib/jvm/java-6-sun-1.6.0.26/jre/lib/i386/libzip.so
+b68ee000-b68f8000 r-xp 00000000 08:05 6161263    /lib/i386-linux-gnu/libnss_files-2.13.so
+b68f8000-b68f9000 r-xp 00009000 08:05 6161263    /lib/i386-linux-gnu/libnss_files-2.13.so
+b68f9000-b68fa000 rwxp 0000a000 08:05 6161263    /lib/i386-linux-gnu/libnss_files-2.13.so
+b68fa000-b6903000 r-xp 00000000 08:05 6161267    /lib/i386-linux-gnu/libnss_nis-2.13.so
+b6903000-b6904000 r-xp 00008000 08:05 6161267    /lib/i386-linux-gnu/libnss_nis-2.13.so
+b6904000-b6905000 rwxp 00009000 08:05 6161267    /lib/i386-linux-gnu/libnss_nis-2.13.so
+b6905000-b690b000 r-xp 00000000 08:05 6161259    /lib/i386-linux-gnu/libnss_compat-2.13.so
+b690b000-b690c000 r-xp 00005000 08:05 6161259    /lib/i386-linux-gnu/libnss_compat-2.13.so
+b690c000-b690d000 rwxp 00006000 08:05 6161259    /lib/i386-linux-gnu/libnss_compat-2.13.so
+b690d000-b6920000 r-xp 00000000 08:05 6161257    /lib/i386-linux-gnu/libnsl-2.13.so
+b6920000-b6921000 r-xp 00012000 08:05 6161257    /lib/i386-linux-gnu/libnsl-2.13.so
+b6921000-b6922000 rwxp 00013000 08:05 6161257    /lib/i386-linux-gnu/libnsl-2.13.so
+b6922000-b6924000 rwxp 00000000 00:00 0 
+b692e000-b6936000 rwxs 00000000 08:05 11403338   /tmp/hsperfdata_webonise/4771
+b6936000-b6959000 r-xp 00000000 08:05 5902735    /usr/lib/jvm/java-6-sun-1.6.0.26/jre/lib/i386/libjava.so
+b6959000-b695b000 rwxp 00023000 08:05 5902735    /usr/lib/jvm/java-6-sun-1.6.0.26/jre/lib/i386/libjava.so
+b695b000-b6962000 r-xp 00000000 08:05 6161286    /lib/i386-linux-gnu/librt-2.13.so
+b6962000-b6963000 r-xp 00006000 08:05 6161286    /lib/i386-linux-gnu/librt-2.13.so
+b6963000-b6964000 rwxp 00007000 08:05 6161286    /lib/i386-linux-gnu/librt-2.13.so
+b6964000-b6967000 ---p 00000000 00:00 0 
+b6967000-b69b5000 rwxp 00000000 00:00 0 
+b69b5000-b69d9000 r-xp 00000000 08:05 6161254    /lib/i386-linux-gnu/libm-2.13.so
+b69d9000-b69da000 r-xp 00023000 08:05 6161254    /lib/i386-linux-gnu/libm-2.13.so
+b69da000-b69db000 rwxp 00024000 08:05 6161254    /lib/i386-linux-gnu/libm-2.13.so
+b69db000-b718d000 r-xp 00000000 08:05 6033935    /usr/lib/jvm/java-6-sun-1.6.0.26/jre/lib/i386/server/libjvm.so
+b718d000-b71e1000 rwxp 007b1000 08:05 6033935    /usr/lib/jvm/java-6-sun-1.6.0.26/jre/lib/i386/server/libjvm.so
+b71e1000-b7600000 rwxp 00000000 00:00 0 
+b7600000-b775a000 r-xp 00000000 08:05 6161217    /lib/i386-linux-gnu/libc-2.13.so
+b775a000-b775b000 ---p 0015a000 08:05 6161217    /lib/i386-linux-gnu/libc-2.13.so
+b775b000-b775d000 r-xp 0015a000 08:05 6161217    /lib/i386-linux-gnu/libc-2.13.so
+b775d000-b775e000 rwxp 0015c000 08:05 6161217    /lib/i386-linux-gnu/libc-2.13.so
+b775e000-b7761000 rwxp 00000000 00:00 0 
+b7761000-b7763000 r-xp 00000000 08:05 6161227    /lib/i386-linux-gnu/libdl-2.13.so
+b7763000-b7764000 r-xp 00001000 08:05 6161227    /lib/i386-linux-gnu/libdl-2.13.so
+b7764000-b7765000 rwxp 00002000 08:05 6161227    /lib/i386-linux-gnu/libdl-2.13.so
+b7765000-b776c000 r-xp 00000000 08:05 5902744    /usr/lib/jvm/java-6-sun-1.6.0.26/jre/lib/i386/jli/libjli.so
+b776c000-b776e000 rwxp 00006000 08:05 5902744    /usr/lib/jvm/java-6-sun-1.6.0.26/jre/lib/i386/jli/libjli.so
+b776e000-b776f000 rwxp 00000000 00:00 0 
+b776f000-b7784000 r-xp 00000000 08:05 6161282    /lib/i386-linux-gnu/libpthread-2.13.so
+b7784000-b7785000 r-xp 00015000 08:05 6161282    /lib/i386-linux-gnu/libpthread-2.13.so
+b7785000-b7786000 rwxp 00016000 08:05 6161282    /lib/i386-linux-gnu/libpthread-2.13.so
+b7786000-b7788000 rwxp 00000000 00:00 0 
+b778c000-b778d000 rwxp 00000000 00:00 0 
+b778d000-b778e000 r-xp 00000000 00:00 0 
+b778e000-b7799000 r-xp 00000000 08:05 5902800    /usr/lib/jvm/java-6-sun-1.6.0.26/jre/lib/i386/libverify.so
+b7799000-b779a000 rwxp 0000b000 08:05 5902800    /usr/lib/jvm/java-6-sun-1.6.0.26/jre/lib/i386/libverify.so
+b779a000-b779c000 rwxp 00000000 00:00 0 
+b779c000-b779d000 r-xp 00000000 00:00 0          [vdso]
+b779d000-b77b9000 r-xp 00000000 08:05 6161204    /lib/i386-linux-gnu/ld-2.13.so
+b77b9000-b77ba000 r-xp 0001b000 08:05 6161204    /lib/i386-linux-gnu/ld-2.13.so
+b77ba000-b77bb000 rwxp 0001c000 08:05 6161204    /lib/i386-linux-gnu/ld-2.13.so
+bfe04000-bfe25000 rwxp 00000000 00:00 0          [stack]
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 -Xbootclasspath:/home/webonise/android-sdks/platforms/android-7/android.jar 
+java_command: com.view.DatabaseConfigUtil
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+USERNAME=webonise
+LD_LIBRARY_PATH=/usr/lib/jvm/java-6-sun-1.6.0.26/jre/lib/i386/server:/usr/lib/jvm/java-6-sun-1.6.0.26/jre/lib/i386:/usr/lib/jvm/java-6-sun-1.6.0.26/jre/../lib/i386:/usr/lib/jvm/java-6-sun-1.6.0.26/jre/lib/i386/client:/usr/lib/jvm/java-6-sun-1.6.0.26/jre/lib/i386:
+SHELL=/bin/bash
+DISPLAY=:0.0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x725510], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x725510], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x5dff20], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: [libjvm.so+0x5dff20], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGXFSZ: [libjvm.so+0x5dff20], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x5dff20], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x5e3160], sa_mask[0]=0x00000004, sa_flags=0x10000004
+SIGHUP: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGINT: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGTERM: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGQUIT: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+
+
+---------------  S Y S T E M  ---------------
+
+OS:squeeze/sid
+
+uname:Linux 2.6.38-13-generic #53-Ubuntu SMP Mon Nov 28 19:23:39 UTC 2011 i686
+libc:glibc 2.13 NPTL 2.13 
+rlimit: STACK 8192k, CORE 0k, NPROC infinity, NOFILE 4096, AS infinity
+load average:0.06 0.03 0.05
+
+/proc/meminfo:
+MemTotal:        3279060 kB
+MemFree:          323792 kB
+Buffers:          179324 kB
+Cached:          1697240 kB
+SwapCached:            0 kB
+Active:          1845604 kB
+Inactive:         968160 kB
+Active(anon):     975896 kB
+Inactive(anon):   220764 kB
+Active(file):     869708 kB
+Inactive(file):   747396 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+HighTotal:       2422500 kB
+HighFree:           2888 kB
+LowTotal:         856560 kB
+LowFree:          320904 kB
+SwapTotal:       3985404 kB
+SwapFree:        3985404 kB
+Dirty:               136 kB
+Writeback:             0 kB
+AnonPages:        937484 kB
+Mapped:           223652 kB
+Shmem:            259068 kB
+Slab:              90968 kB
+SReclaimable:      72848 kB
+SUnreclaim:        18120 kB
+KernelStack:        3144 kB
+PageTables:         8260 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     5624932 kB
+Committed_AS:    3148296 kB
+VmallocTotal:     122880 kB
+VmallocUsed:       43416 kB
+VmallocChunk:      26688 kB
+HardwareCorrupted:     0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       4096 kB
+DirectMap4k:       16376 kB
+DirectMap4M:      892928 kB
+
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 37 stepping 5, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, ht
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 37
+model name	: Intel(R) Core(TM) i3 CPU         540  @ 3.07GHz
+stepping	: 5
+cpu MHz		: 3059.000
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 0
+initial apicid	: 0
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm sse4_1 sse4_2 popcnt lahf_lm arat dts tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 6117.38
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 37
+model name	: Intel(R) Core(TM) i3 CPU         540  @ 3.07GHz
+stepping	: 5
+cpu MHz		: 1197.000
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 1
+initial apicid	: 1
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm sse4_1 sse4_2 popcnt lahf_lm arat dts tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 6117.84
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 37
+model name	: Intel(R) Core(TM) i3 CPU         540  @ 3.07GHz
+stepping	: 5
+cpu MHz		: 1197.000
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 4
+core id		: 2
+cpu cores	: 2
+apicid		: 4
+initial apicid	: 4
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm sse4_1 sse4_2 popcnt lahf_lm arat dts tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 6117.85
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 37
+model name	: Intel(R) Core(TM) i3 CPU         540  @ 3.07GHz
+stepping	: 5
+cpu MHz		: 1995.000
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 4
+core id		: 2
+cpu cores	: 2
+apicid		: 5
+initial apicid	: 5
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm sse4_1 sse4_2 popcnt lahf_lm arat dts tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 6117.85
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 3279060k(323792k free), swap 3985404k(3985404k free)
+
+vm_info: Java HotSpot(TM) Server VM (20.1-b02) for linux-x86 JRE (1.6.0_26-b03), built on May  4 2011 01:04:10 by "java_re" with gcc 3.2.1-7a (J2SE release)
+
+time: Mon Dec 26 17:25:20 2011
+elapsed time: 0 seconds
+

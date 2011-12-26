@@ -19,14 +19,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:text="ADD" >
+        android:text="Add List" >
     </Button>
+
+    <FrameLayout
+        android:id="@+id/listHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/userText"
+        android:background="#646D7E" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Main List" />
+    </FrameLayout>
 
     <ListView
         android:id="@android:id/list"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/userText"
+        android:layout_below="@id/listHeader"
         android:stackFromBottom="true"
         android:transcriptMode="normal" />
 
