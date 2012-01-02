@@ -27,6 +27,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 	private static final int DATABASE_VERSION = 6;
 	
 	private Dao<ListData, Integer> listDao = null;
+	//private Dao<ListItems, Integer> listItemsDao = null;
+	
 	private RuntimeExceptionDao<ListData, Integer> simpleRuntimeDao = null;
 
 	/*private Dao<ClickGroup, Integer> groupDao;
@@ -45,6 +47,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 		try {
 			/*TableUtils.createTable(connectionSource, ClickGroup.class);*/
 			TableUtils.createTable(connectionSource, ListData.class);
+			//TableUtils.createTable(connectionSource, ListItems.class);
 		} catch (SQLException e) {
 			Log.e(DatabaseHelper.class.getName(), "Unable to create datbases", e);
 			throw new RuntimeException(e);
@@ -55,7 +58,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 	public void onUpgrade(SQLiteDatabase sqliteDatabase, ConnectionSource connectionSource, int oldVer, int newVer) {
 		try {
 			TableUtils.dropTable(connectionSource, ListData.class, true);
-			TableUtils.dropTable(connectionSource, ListData.class, true);
+			//TableUtils.dropTable(connectionSource, ListItems.class, true);
 			onCreate(sqliteDatabase, connectionSource);
 		} catch (SQLException e) {
 			Log.e(DatabaseHelper.class.getName(), "Unable to upgrade database from version " + oldVer + " to new "
@@ -70,4 +73,10 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 		return listDao;
 	}
 
+//	public Dao<ListItems, Integer> getListItemsDao() throws SQLException {
+//		if (listItemsDao == null) {
+//			listItemsDao = getDao(ListItems.class);
+//		}
+//		return listItemsDao;
+//	}
 	}

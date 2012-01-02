@@ -20,14 +20,15 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.QueryBuilder;
 
 public class ListExampleActivity extends OrmLiteBaseActivity<DatabaseHelper> {
-	
+
 	private final String LOG_TAG = getClass().getSimpleName();
 	private EditText mUserText;
 	private ListView listView;
 	ListData c;
-	// private ArrayAdapter<String> mAdapter;
 
-	//private ArrayList<String> mStrings = new ArrayList<String>();
+	// private ListAdapter mAdapter;
+
+	// private ArrayList<String> mStrings = new ArrayList<String>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,61 +38,63 @@ public class ListExampleActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 
 		// mAdapter = new ArrayAdapter<String>(this,
 		// android.R.layout.simple_list_item_1, mStrings);
-
-		// setListAdapter(mAdapter);
 		// listView = getListView();
 
 		mUserText = (EditText) findViewById(R.id.userText);
 		listView = (ListView) findViewById(android.R.id.list);
 
 		final Button button = (Button) findViewById(R.id.addBtn);
-		
 
 		button.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				try {
-					ListData listData = saveToObj();
-					Dao<ListData, Integer> dao = getHelper().getListDao();
-					boolean alreadyCreated = false;
-					if (listData.getId() != null) {
-						ListData dbCount = dao.queryForId(listData.getId());
-						if (dbCount != null) {
-							listData.changeValue(dbCount.getValue());
-							dao.update(listData);
-							alreadyCreated = true;
+				
+				if (!mUserText.getText().toString().equals("")) {
+					try {
+						ListData listData = saveToObj();
+						Dao<ListData, Integer> dao = getHelper().getListDao();
+						boolean alreadyCreated = false;
+						if (listData.getId() != null) {
+							ListData dbCount = dao.queryForId(listData.getId());
+							if (dbCount != null) {
+								listData.changeValue(dbCount.getValue());
+								dao.update(listData);
+								alreadyCreated = true;
+							}
 						}
-					}
 
-					if (alreadyCreated) {
-						finish();
-					} else {
-						dao.create(listData);
-						Log.i(LOG_TAG, "data inserted(" + listData + ")");
-						
-						// CounterScreen.callMe(CreateCounter.this,
-						// clickCount.getId());
-					}
-				} catch (SQLException e) {
-					throw new RuntimeException(e);
-				} 
+						if (alreadyCreated) {
 
-				// sendText();
+							finish();
+						} else {
+							dao.create(listData);
+							Log.i(LOG_TAG, "data inserted(" + listData + ")");
+
+							// CounterScreen.callMe(CreateCounter.this,
+							// clickCount.getId());
+						}
+					} catch (SQLException e) {
+						throw new RuntimeException(e);
+					}
+					// ListAdapter(mAdapter);
+					// sendText();
+					// arrayAdapter.notifyDataSetChanged();
+					try {
+						fillList();
+					} catch (SQLException e) {
+						throw new RuntimeException(e);
+					}
+				}
 			}
 		});
 	}
-		
-		
 
-		/*
-		 * listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
-		 * {
-		 * 
-		 * @Override public void onItemClick(AdapterView<?> av, View v, int pos,
-		 * long id) { onListItemClick(v, pos, id); } });
-		 */
-
-	
+	/*
+	 * listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+	 * 
+	 * @Override public void onItemClick(AdapterView<?> av, View v, int pos,
+	 * long id) { onListItemClick(v, pos, id); } });
+	 */
 
 	/*
 	 * protected void onListItemClick(View v, int pos, long id) {
@@ -125,8 +128,9 @@ public class ListExampleActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 		c.setName(mUserText.getText().toString());
 		mUserText.setText(null);
 		return c;
-		
+
 	}
+
 	@Override
 	protected void onResume() {
 		super.onResume();
@@ -136,19 +140,24 @@ public class ListExampleActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 			throw new RuntimeException(e);
 		}
 	}
+
 	private void fillList() throws SQLException {
 		Log.i(ListExampleActivity.class.getName(), "Show list again");
 		Dao<ListData, Integer> dao = getHelper().getListDao();
 		QueryBuilder<ListData, Integer> builder = dao.queryBuilder();
-		//builder.orderBy(ListData.List_Name, false).limit(30L);
+		// builder.orderBy(ListData.List_Name, false).limit(30L);
 		List<ListData> list = dao.query(builder.prepare());
-		ArrayAdapter<ListData> arrayAdapter = new CountsAdapter(this, R.layout.list_style, list);
+		ArrayAdapter<ListData> arrayAdapter = new CountsAdapter(this,
+				R.layout.list_style, list);
+		arrayAdapter.notifyDataSetChanged();
 		listView.setAdapter(arrayAdapter);
+
 	}
-	
+
 	private class CountsAdapter extends ArrayAdapter<ListData> {
 
-		public CountsAdapter(Context context, int textViewResourceId, List<ListData> items) {
+		public CountsAdapter(Context context, int textViewResourceId,
+				List<ListData> items) {
 			super(context, textViewResourceId, items);
 		}
 
@@ -163,6 +172,7 @@ public class ListExampleActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 			fillText(v, R.id.listName, list.getName());
 			return v;
 		}
+
 		private void fillText(View v, int id, String text) {
 			TextView textView = (TextView) v.findViewById(id);
 			textView.setText(text == null ? "" : text);
